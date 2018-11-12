@@ -2,15 +2,16 @@
  # USAGE: repo-sync.sh <commit-changes?>
 
  log() {
+   # shellcheck disable=SC1117
    echo -e "\033[0;33m$(date "+%H:%M:%S")\033[0;37m ==> $1."
  }
 
  install_helm_cli() {
-   export HELM_URL=https://storage.googleapis.com/kubernetes-helm
-   export HELM_TARBALL=helm-v2.11.0-linux-amd64.tar.gz
-   wget -q ${HELM_URL}/${HELM_TARBALL}
-   tar xzfv ${HELM_TARBALL}
-   PATH=$(pwd)/linux-amd64/:$PATH
+   mkdir tmp
+   curl -k -L https://storage.googleapis.com/kubernetes-helm/helm-${HELM_VERSION}-darwin-amd64.tar.gz > tmp/helm.tar.gz
+   tar xvf tmp/helm.tar.gz -C tmp --strip=1 darwin-amd64/helm > /dev/null 2>&1
+   chmod +x tmp/helm
+   sudo mv helm /usr/local/bin/
    helm init --client-only
  }
 

@@ -68,8 +68,8 @@
    # shellcheck disable=SC2045
    for dir in $(ls "$REPO_DIR"/stable); do
      log "Packaging $dir"
-     helm dep update "$REPO_DIR"/stable/$dir || true
-     helm package "$REPO_DIR"/stable/$dir
+     helm dep update "$REPO_DIR"/stable/"$dir" || true
+     helm package "$REPO_DIR"/stable/"$dir"
    done
 
    log "Indexing repository"

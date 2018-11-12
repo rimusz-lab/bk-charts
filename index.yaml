@@ -3,6 +3,27 @@ entries:
   agent:
   - apiVersion: v1
     appVersion: 3.5.4
+    created: 2018-11-12T14:58:23.040921391Z
+    description: Buildkite Agent Chart
+    digest: 76ab600a318b7202e5a4a0edc28ad5e345c2882860d443ea0df80fb408cd620e
+    home: https://buildkite.com
+    icon: https://github.com/buildkite/media/blob/master/marks/Buildkite%20-%20Mark%20-%20colour.png
+    keywords:
+    - kubernetes deployment
+    - helm release
+    - continuous deployment
+    - continuous integration
+    maintainers:
+    - email: rmocius@gmail.com
+      name: rimusz
+    name: agent
+    sources:
+    - https://github.com/buildkite/agent
+    urls:
+    - https://rimusz-lab.github.io/bk-charts/agent-0.3.1.tgz
+    version: 0.3.1
+  - apiVersion: v1
+    appVersion: 3.5.4
     created: 2018-11-12T11:50:45.179440095Z
     description: Buildkite Agent Chart
     digest: 835eb8b8ee40fad5129127b044c4b0229b6c5b89f083ba56babe75febaff8b1c
@@ -22,4 +43,4 @@ entries:
     urls:
     - https://rimusz-lab.github.io/bk-charts/agent-0.3.0.tgz
     version: 0.3.0
-generated: 2018-11-12T11:50:45.178053561Z
+generated: 2018-11-12T14:58:23.039545349Z

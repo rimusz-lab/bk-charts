@@ -7,7 +7,29 @@ branches:
     only:
       - master
 
-script:
-  - 'if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then bash ./.scripts/repo-sync.sh; fi'
-  # Commit changes unless pull request
-  - 'if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then bash ./.scripts/repo-sync.sh true; fi'
+jobs:
+  include:
+    - stage: lint-scripts
+      name: "Lint shell scripts"
+      script:
+        - echo "Run shell scripts linting!"
+        - ./test/lint-scripts.sh
+    - stage: charts-testing
+      name: "Lint charts"
+      env:
+        - CHART_TESTING_TAG="v3.0.0"
+        - CHARTS_REPO="https://github.com/rimusz-lab/bk-charts"
+      script:
+        - 'if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then ./test/lint-charts.sh'
+    - stage: publish-charts
+      name: "Publish charts"
+      script:
+        - 'if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then bash ./.scripts/repo-sync.sh true; fi'
+
+stages:
+  - lint-scripts
+  - charts-testing
+  - publish-charts
+
+notifications:
+  email: false

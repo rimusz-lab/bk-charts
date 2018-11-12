@@ -5,10 +5,14 @@ set -o nounset
 set -o pipefail
 
 readonly IMAGE_TAG=${CHART_TESTING_TAG}
-readonly IMAGE_REPOSITORY="gcr.io/kubernetes-charts-ci/chart-testing"
+readonly IMAGE_REPOSITORY="quay.io/helmpack/chart-testing"
 readonly REPO_ROOT="${REPO_ROOT:-$(git rev-parse --show-toplevel)}"
 
 main() {
+    echo
+    echo "Run chart-testing linting!"
+    echo
+
     git remote add k8s "${CHARTS_REPO}" &> /dev/null || true
     git fetch k8s master
 

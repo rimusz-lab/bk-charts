@@ -1,8 +1,17 @@
 #!/bin/bash -e
  # USAGE: repo-sync.sh <commit-changes?>
 
- log () {
+ log() {
    echo -e "\033[0;33m$(date "+%H:%M:%S")\033[0;37m ==> $1."
+ }
+
+ install_helm_cli() {
+   export HELM_URL=https://storage.googleapis.com/kubernetes-helm
+   export HELM_TARBALL=helm-v2.11.0-linux-amd64.tar.gz
+   wget -q ${HELM_URL}/${HELM_TARBALL}
+   tar xzfv ${HELM_TARBALL}
+   PATH=`pwd`/linux-amd64/:$PATH
+   helm init --client-only
  }
 
  travis_setup_git() {
@@ -33,7 +42,8 @@
  COMMIT_MSG="Updating chart repository"
 
  show_important_vars
-
+ install_helm_cli
+ 
  if [ $TRAVIS != "false" ]; then
    log "Configuring git for Travis-ci"
    travis_setup_git

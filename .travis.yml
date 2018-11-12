@@ -7,14 +7,6 @@ branches:
     only:
       - master
 
-install:
-  - export HELM_URL=https://storage.googleapis.com/kubernetes-helm
-  - export HELM_TARBALL=helm-v2.11.0-linux-amd64.tar.gz
-  - wget -q ${HELM_URL}/${HELM_TARBALL}
-  - tar xzfv ${HELM_TARBALL}
-  - PATH=`pwd`/linux-amd64/:$PATH
-  - helm init --client-only
-
 script:
   - 'if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then bash ./.scripts/repo-sync.sh; fi'
   # Commit changes unless pull request

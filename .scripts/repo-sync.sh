@@ -55,8 +55,8 @@
  pushd $BUILD_DIR
    for dir in `ls $REPO_DIR/charts`;do
      log "Packaging $dir"
-     helm dep update $REPO_DIR/charts/$dir
-     helm package $REPO_DIR/charts/$dir
+     helm dep update $REPO_DIR/stable/$dir
+     helm package $REPO_DIR/stable/$dir
    done
 
    log "Indexing repository"

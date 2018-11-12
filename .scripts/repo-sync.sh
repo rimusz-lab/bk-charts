@@ -9,7 +9,8 @@
    git config user.email "travis@travis-ci.org"
    git config user.name "Travis CI"
    COMMIT_MSG="Updating chart repository, travis build #$TRAVIS_BUILD_NUMBER"
-   git remote add upstream "https://$GH_TOKEN@github.com/buildkite/charts.git"
+   # git remote add upstream "https://$GH_TOKEN@github.com/buildkite/charts.git"
+   git remote add upstream "https://$GH_TOKEN@github.com/rimusz-lab/bk-charts.git"
  }
 
  show_important_vars() {
@@ -54,9 +55,8 @@
  # Package all charts and update index in temporary buildDir
  log "Packaging charts from source code"
  pushd $BUILD_DIR
-   for dir in `ls $REPO_DIR/charts`;do
+   for dir in `ls $REPO_DIR/stable`;do
      log "Packaging $dir"
-     helm dep update $REPO_DIR/stable/$dir
      helm package $REPO_DIR/stable/$dir
    done
 

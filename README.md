@@ -39,7 +39,6 @@ Upon successful review, someone will give the PR a __LGTM__ in the review thread
 
 * A massive thanks to [Rimas Mocevicius](https://github.com/rimusz) for authoring this chart
 
-
 ## Copyright
 
 Copyright (c) 2018 Buildkite Pty Ltd. See [LICENSE](LICENSE) for details.

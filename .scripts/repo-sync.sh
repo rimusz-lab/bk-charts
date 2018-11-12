@@ -88,6 +88,7 @@ set -o pipefail
 
  git reset upstream/gh-pages
  cp "$BUILD_DIR"/* "$REPO_DIR"
+ rm -fr .github
 
  # Commit changes are not enabled during PR
  if [ $COMMIT_CHANGES != "false" ]; then

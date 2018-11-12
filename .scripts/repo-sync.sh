@@ -36,7 +36,7 @@
    travis_setup_git
  else
    # git remote add upstream git@github.com:buildkite/charts.git || true
-   git remote add upstream git@github.com:rimusz-lab/charts.git || true
+   git remote add upstream git@github.com:rimusz-lab/bk-charts.git || true
  fi
 
  git fetch upstream

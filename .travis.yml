@@ -13,8 +13,7 @@ install:
 script:
   - 'if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then bash ./.scripts/repo-sync.sh; fi'
   # Commit changes unless pull request
-  - 'if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then bash ./.scriptsrepo-sync.sh true; fi'
-
+  - 'if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then bash ./.scripts/repo-sync.sh true; fi'
 
 env:
   global:

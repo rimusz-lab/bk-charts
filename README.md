@@ -37,7 +37,7 @@ Upon successful review, someone will give the PR a __LGTM__ in the review thread
 
 ## Thanks :heart:
 
-* A massive thanks to [Rimas Mocevicius](https://github.com/rimusz) for authoring this chart
+* A massive thanks to [Rimas Mocevicius](https://github.com/rimusz) for authoring Buildkite Agent chart.
 
 ## Copyright
 

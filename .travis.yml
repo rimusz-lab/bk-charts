@@ -20,7 +20,7 @@ jobs:
         - CHART_TESTING_TAG="v3.0.0"
         - CHARTS_REPO="https://github.com/rimusz-lab/bk-charts"
       script:
-        - 'if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then ./test/lint-charts.sh'
+        - 'if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then ./test/lint-charts.sh; fi'
     - stage: publish-charts
       name: "Publish charts"
       script:

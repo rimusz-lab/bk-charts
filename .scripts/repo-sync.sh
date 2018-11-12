@@ -55,7 +55,7 @@
  # Package all charts and update index in temporary buildDir
  log "Packaging charts from source code"
  pushd $BUILD_DIR
-   for dir in `ls $REPO_DIR/charts`;do
+   for dir in `ls $REPO_DIR/stable`;do
      log "Packaging $dir"
      helm dep update $REPO_DIR/stable/$dir
      helm package $REPO_DIR/stable/$dir

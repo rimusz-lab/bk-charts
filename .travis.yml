@@ -12,8 +12,7 @@ jobs:
     - stage: lint-scripts
       name: "Lint shell scripts"
       script:
-        - echo "Run shell scripts linting!"
-        - ./test/lint-scripts.sh
+        - 'if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then ./test/lint-scripts.sh; fi'
     - stage: charts-testing
       name: "Lint charts"
       env:
@@ -32,4 +31,3 @@ stages:
   - lint-scripts
   - charts-testing
   - publish-charts
-

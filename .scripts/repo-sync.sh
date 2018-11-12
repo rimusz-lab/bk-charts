@@ -57,7 +57,6 @@
  pushd $BUILD_DIR
    for dir in `ls $REPO_DIR/stable`;do
      log "Packaging $dir"
-     helm dep update $REPO_DIR/stable/$dir
      helm package $REPO_DIR/stable/$dir
    done
 

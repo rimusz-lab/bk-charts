@@ -15,6 +15,14 @@ spec:
       labels:
         app: {{ template "name" . }}
         release: {{ .Release.Name }}
+      annotations:
+        checksum/binarystore: {{ include (print $.Template.BasePath "/secret.yaml") . | sha256sum }}
+        {{- if .Values.registryCreds.gcrServiceAccountKey }}
+        checksum/binarystore: {{ include (print $.Template.BasePath "/secret-gcr.yaml") . | sha256sum }}
+        {{- end }}
+        {{- if .Values.registryCreds.dockerConfig }}
+        checksum/binarystore: {{ include (print $.Template.BasePath "/secret-registry.yaml") . | sha256sum }}
+        {{- end }}
     spec:
       serviceAccount: {{ template "fullname" . }}
       containers:

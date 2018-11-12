@@ -33,5 +33,3 @@ stages:
   - charts-testing
   - publish-charts
 
-notifications:
-  email: false

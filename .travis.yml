@@ -10,12 +10,10 @@ branches:
 jobs:
   include:
     - stage: lint-scripts
-      if: branch != master
       name: "Lint shell scripts"
       script:
         - 'if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then ./test/lint-scripts.sh; fi'
     - stage: charts-testing
-      if: branch != master
       name: "Lint charts"
       env:
         - CHART_TESTING_TAG="v2.0.0"
@@ -23,7 +21,6 @@ jobs:
       script:
         - 'if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then ./test/lint-charts.sh; fi'
     - stage: publish-charts
-      if: branch = master
       name: "Publish charts"
       env:
         - HELM_VERSION=v2.11.0

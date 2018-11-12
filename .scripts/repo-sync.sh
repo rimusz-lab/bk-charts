@@ -9,7 +9,8 @@
    git config user.email "travis@travis-ci.org"
    git config user.name "Travis CI"
    COMMIT_MSG="Updating chart repository, travis build #$TRAVIS_BUILD_NUMBER"
-   git remote add upstream "https://$GH_TOKEN@github.com/buildkite/charts.git"
+   # git remote add upstream "https://$GH_TOKEN@github.com/buildkite/charts.git"
+   git remote add upstream "https://$GH_TOKEN@github.com/rimusz-lab/bk-charts.git"
  }
 
  show_important_vars() {

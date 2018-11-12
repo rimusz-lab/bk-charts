@@ -11,7 +11,7 @@
    curl -k -L https://storage.googleapis.com/kubernetes-helm/helm-"${HELM_VERSION}"-darwin-amd64.tar.gz > tmp/helm.tar.gz
    tar xvf tmp/helm.tar.gz -C tmp --strip=1 darwin-amd64/helm > /dev/null 2>&1
    chmod +x tmp/helm
-   sudo mv helm /usr/local/bin/
+   sudo mv tmp/helm /usr/local/bin/
    helm init --client-only
  }
 
